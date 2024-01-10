@@ -1,19 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import Sidebar from "./components/Sidebar/Sidebar";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import Context from "./context/Context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <div className="flex items-start">
-        <Sidebar />
+      <Context.Provider
+        value={{
+          sidebarActive: false,
+          setSidebarActive: () => {},
+        }}
+      >
         <App />
-      </div>
+      </Context.Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

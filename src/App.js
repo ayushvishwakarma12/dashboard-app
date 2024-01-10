@@ -1,16 +1,25 @@
-import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home/Home";
-import Users from "./components/Users/Users";
-import Products from "./components/Products/Products";
-import NotFound from "./components/NotFound/NotFound";
+import Context from "./context/Context";
+import { useState } from "react";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Outlet from "./outlet/outlet";
 
-const App = () => (
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/users" element={<Users />} />
-    <Route path="/products" element={<Products />} />
-    <Route path="*" element={<NotFound />} />
-  </Routes>
-);
+const App = () => {
+  const [sidebarActive, setSidebarActive] = useState(false);
+
+  return (
+    <Context.Provider value={{ sidebarActive, setSidebarActive }}>
+      <Context.Consumer>
+        {() => {
+          return (
+            <div className="flex">
+              <Sidebar />
+              <Outlet />
+            </div>
+          );
+        }}
+      </Context.Consumer>
+    </Context.Provider>
+  );
+};
 
 export default App;

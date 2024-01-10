@@ -5,7 +5,7 @@ import "react-circular-progressbar/dist/styles.css";
 
 const Featured = () => {
   return (
-    <div className=" flex-[2] border shadow-2xl p-5">
+    <div className=" flex-[2] border shadow-lg p-5">
       <div className="flex justify-between items-center text-gray-500 font-[500]">
         <h1>Total Revenue</h1>
         <BsThreeDotsVertical />

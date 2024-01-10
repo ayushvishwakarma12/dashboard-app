@@ -19,69 +19,72 @@ const Products = ({ limit, heading = "Products" }) => {
       {data ? (
         <div className="w-full">
           <table className="w-full">
-            <tr className="w-full text-left">
-              <th className="border md:p-3 p-1 text-[12px] md:text-base">
-                Title
-              </th>
-              <th className="border md:p-3 p-1 text-[12px] md:text-base">
-                Brand
-              </th>
-              <th className="border md:p-3 p-1 text-[12px] md:text-base">
-                Category
-              </th>
-              <th className="border md:p-3 p-1 text-[12px] md:text-base">
-                Rating
-              </th>
-              <th className="border md:p-3 p-1 text-[12px] md:text-base">
-                Stock
-              </th>
-              <th className="border md:p-3 p-1 text-[12px] md:text-base">
-                Price
-              </th>
-            </tr>
-
-            {data.slice(0, limit).map((eachData, i) => {
-              return (
-                <tr key={i} className="">
-                  <td
-                    key={eachData.title}
-                    className="border-b md:p-3 text-[12px] md:text-base p-1"
-                  >
-                    {eachData.title}
-                  </td>
-                  <td
-                    key={eachData.brand}
-                    className="border-b md:p-3 text-[12px] md:text-base p-1"
-                  >
-                    {eachData.brand}
-                  </td>
-                  <td
-                    key={eachData.category}
-                    className="border-b md:p-3 text-[12px] md:text-base p-1"
-                  >
-                    {eachData.category}
-                  </td>
-                  <td
-                    key={eachData.rating}
-                    className="border-b md:p-3 text-[12px] md:text-base p-1"
-                  >
-                    {eachData.rating}
-                  </td>
-                  <td
-                    key={eachData.stock}
-                    className="border-b md:p-3 text-[12px] md:text-base p-1"
-                  >
-                    {eachData.stock}
-                  </td>
-                  <td
-                    key={eachData.price}
-                    className="border-b md:p-3 text-[12px] md:text-base p-1"
-                  >
-                    {eachData.price}
-                  </td>
-                </tr>
-              );
-            })}
+            <thead>
+              <tr className="w-full text-left">
+                <th className="border md:p-3 p-1 text-[12px] md:text-base">
+                  Title
+                </th>
+                <th className="border md:p-3 p-1 text-[12px] md:text-base">
+                  Brand
+                </th>
+                <th className="border md:p-3 p-1 text-[12px] md:text-base">
+                  Category
+                </th>
+                <th className="border md:p-3 p-1 text-[12px] md:text-base">
+                  Rating
+                </th>
+                <th className="border md:p-3 p-1 text-[12px] md:text-base">
+                  Stock
+                </th>
+                <th className="border md:p-3 p-1 text-[12px] md:text-base">
+                  Price
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.slice(0, limit).map((eachData, i) => {
+                return (
+                  <tr key={i} className="">
+                    <td
+                      key={eachData.title}
+                      className="border-b md:p-3 text-[12px] md:text-base p-1"
+                    >
+                      {eachData.title}
+                    </td>
+                    <td
+                      key={eachData.brand}
+                      className="border-b md:p-3 text-[12px] md:text-base p-1"
+                    >
+                      {eachData.brand}
+                    </td>
+                    <td
+                      key={eachData.category}
+                      className="border-b md:p-3 text-[12px] md:text-base p-1"
+                    >
+                      {eachData.category}
+                    </td>
+                    <td
+                      key={eachData.rating}
+                      className="border-b md:p-3 text-[12px] md:text-base p-1"
+                    >
+                      {eachData.rating}
+                    </td>
+                    <td
+                      key={eachData.stock}
+                      className="border-b md:p-3 text-[12px] md:text-base p-1"
+                    >
+                      {eachData.stock}
+                    </td>
+                    <td
+                      key={eachData.price}
+                      className="border-b md:p-3 text-[12px] md:text-base p-1"
+                    >
+                      {eachData.price}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
           </table>
         </div>
       ) : (

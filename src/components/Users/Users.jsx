@@ -19,69 +19,72 @@ const Users = ({ limit, heading = "Users" }) => {
       {data ? (
         <div className="w-full">
           <table className="w-full">
-            <tr className="w-full text-left">
-              <th className="border sm:p-1 text-[12px] md:text-base md:p-3">
-                First Name
-              </th>
-              <th className="border sm:p-1 text-[12px] md:text-base md:p-3">
-                Last Name
-              </th>
-              <th className="border sm:p-1 text-[12px] md:text-base md:p-3">
-                City
-              </th>
-              <th className="border sm:p-1 text-[12px] md:text-base md:p-3">
-                Age
-              </th>
-              <th className="border sm:p-1 text-[12px] md:text-base md:p-3">
-                Birth Date
-              </th>
-              <th className="border sm:p-1 text-[12px] md:text-base md:p-3">
-                Gender
-              </th>
-            </tr>
-
-            {data.slice(0, limit).map((eachData, i) => {
-              return (
-                <tr key={i} className="">
-                  <td
-                    key={eachData.firstName}
-                    className="border-b lg:p-3 text-[12px] md:text-base  p-1"
-                  >
-                    {eachData.firstName}
-                  </td>
-                  <td
-                    key={eachData.lastName}
-                    className="border-b lg:p-3 text-[12px] md:text-base p-1"
-                  >
-                    {eachData.lastName}
-                  </td>
-                  <td
-                    key={eachData.address["city"]}
-                    className="border-b lg:p-3 text-[12px] md:text-base p-1"
-                  >
-                    {eachData.address["city"]}
-                  </td>
-                  <td
-                    key={eachData.age}
-                    className="border-b lg:p-3 text-[12px] md:text-base p-1"
-                  >
-                    {eachData.age}
-                  </td>
-                  <td
-                    key={eachData.birthDate}
-                    className="border-b lg:p-3 text-[12px] md:text-base p-1"
-                  >
-                    {eachData.birthDate}
-                  </td>
-                  <td
-                    key={eachData.gender}
-                    className="border-b lg:p-3 text-[12px] md:text-base p-1"
-                  >
-                    {eachData.gender}
-                  </td>
-                </tr>
-              );
-            })}
+            <thead>
+              <tr className="w-full text-left">
+                <th className="border sm:p-1 text-[12px] md:text-base md:p-3">
+                  First Name
+                </th>
+                <th className="border sm:p-1 text-[12px] md:text-base md:p-3">
+                  Last Name
+                </th>
+                <th className="border sm:p-1 text-[12px] md:text-base md:p-3">
+                  City
+                </th>
+                <th className="border sm:p-1 text-[12px] md:text-base md:p-3">
+                  Age
+                </th>
+                <th className="border sm:p-1 text-[12px] md:text-base md:p-3">
+                  Birth Date
+                </th>
+                <th className="border sm:p-1 text-[12px] md:text-base md:p-3">
+                  Gender
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.slice(0, limit).map((eachData, i) => {
+                return (
+                  <tr key={i} className="">
+                    <td
+                      key={eachData.firstName}
+                      className="border-b lg:p-3 text-[12px] md:text-base  p-1"
+                    >
+                      {eachData.firstName}
+                    </td>
+                    <td
+                      key={eachData.lastName}
+                      className="border-b lg:p-3 text-[12px] md:text-base p-1"
+                    >
+                      {eachData.lastName}
+                    </td>
+                    <td
+                      key={eachData.address["city"]}
+                      className="border-b lg:p-3 text-[12px] md:text-base p-1"
+                    >
+                      {eachData.address["city"]}
+                    </td>
+                    <td
+                      key={eachData.age}
+                      className="border-b lg:p-3 text-[12px] md:text-base p-1"
+                    >
+                      {eachData.age}
+                    </td>
+                    <td
+                      key={eachData.birthDate}
+                      className="border-b lg:p-3 text-[12px] md:text-base p-1"
+                    >
+                      {eachData.birthDate}
+                    </td>
+                    <td
+                      key={eachData.gender}
+                      className="border-b lg:p-3 text-[12px] md:text-base p-1"
+                    >
+                      {eachData.gender}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
           </table>
         </div>
       ) : (
