@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <div className="flex">
+      <div className="flex items-start">
         <Sidebar />
         <App />
       </div>

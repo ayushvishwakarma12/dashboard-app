@@ -1,20 +1,58 @@
 import { RiSingleQuotesL } from "react-icons/ri";
 import { CiSearch } from "react-icons/ci";
 import { RiHome3Fill } from "react-icons/ri";
-import { IoChatbubbleOutline } from "react-icons/io5";
-import { IoMdSwitch } from "react-icons/io";
 import { BsFileBarGraph } from "react-icons/bs";
 import { FaUser, FaShoppingBag, FaTruck, FaBell } from "react-icons/fa";
 import { AiFillShop } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import adminImage from "../../assets/admin.jpg";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoClose } from "react-icons/io5";
+import { useState } from "react";
 
 const Sidebar = () => {
+  const [sidebarActive, setSidebarActive] = useState(false);
+
   return (
-    <div className=" border-x-[1px] border-slate-300 h-screen p-5 flex-1 max-w-72">
-      <div className="flex mt-8">
-        <RiSingleQuotesL className=" text-blue-500 h-8 w-8 mb-[30px]" />
-        <p className="font-bold  text-2xl">Admin</p>
+    <div
+      className={`border-x-[1px] border-slate-300 min-h-screen p-5 flex flex-col flex-1 max-w-72 fixed md:static z-50 bg-white ${
+        sidebarActive
+          ? "left-0  duration-500 transition-all"
+          : "-left-[300px] transition-all duration-700"
+      }`}
+    >
+      <div
+        className={` md:hidden ${
+          sidebarActive ? "flex justify-end" : "fixed left-2 top-2 items-end"
+        }`}
+      >
+        {sidebarActive ? (
+          <button onClick={() => setSidebarActive(!sidebarActive)}>
+            <IoClose className="h-[30px] w-[30px] text-slate-500" />
+          </button>
+        ) : (
+          <button onClick={() => setSidebarActive(!sidebarActive)}>
+            <GiHamburgerMenu className="h-[30px] w-[30px] text-slate-500" />
+          </button>
+        )}
       </div>
+
+      <div className="flex mt-8 items-center">
+        <RiSingleQuotesL className=" text-blue-500 h-8 w-8 mb-5" />
+        <div className="flex items-center">
+          <Link to={"/"}>
+            <p className="font-bold  text-2xl pb-5">Admin</p>
+          </Link>
+          <div className="relative left-4 bottom-4 h-[100px] w-[100px] rounded-full overflow-hidden border-2 border-blue-500">
+            <img
+              className="relative bottom-6 object-fill"
+              src={adminImage}
+              alt={"admin"}
+            />
+          </div>
+        </div>
+      </div>
+
       <div className="flex items-center bg-slate-200 p-2 rounded-lg">
         <CiSearch className="mr-2" />
         <input
@@ -32,39 +70,49 @@ const Sidebar = () => {
       <hr className=" border mt-5 mb-5" />
       <ul className="text-blue-500 grid grid-cols-1 gap-2">
         <Link to={"/users"}>
-          <li className="flex items-center p-1">
+          <li className="flex items-center hover:bg-blue-200 duration-500 ease-in-out rounded-lg p-2">
             <FaUser className="mr-1" />
             <span className="font-semibold text-base text-black/60">Users</span>
           </li>
         </Link>
         <Link to={"/products"}>
-          <li className="flex items-center p-1">
+          <li className="flex items-center  hover:bg-blue-200 duration-500 ease-in-out rounded-lg p-2">
             <FaShoppingBag className="mr-1" />
             <span className="font-semibold text-base text-black/60">
               Product
             </span>
           </li>
         </Link>
-        <li className="flex items-center p-1">
-          <AiFillShop className="mr-1" />
-          <span className="font-semibold text-base text-black/60">Orders</span>
-        </li>
-        <li className="flex items-center p-1">
-          <FaTruck className="mr-1" />
-          <span className="font-semibold text-base text-black/60">
-            Delivery
-          </span>
-        </li>
-        <li className="flex items-center p-1">
-          <BsFileBarGraph className="mr-1" />
-          <span className="font-semibold text-base text-black/60">Stats</span>
-        </li>
-        <li className="flex items-center p-1">
-          <FaBell className="mr-1" />
-          <span className="font-semibold text-base text-black/60">
-            Notification
-          </span>
-        </li>
+        <Link to={"/orders"}>
+          <li className="flex items-center  hover:bg-blue-200 duration-500 ease-in-out rounded-lg p-2">
+            <AiFillShop className="mr-1" />
+            <span className="font-semibold text-base text-black/60">
+              Orders
+            </span>
+          </li>
+        </Link>
+        <Link to={"/delivery"}>
+          <li className="flex items-center  hover:bg-blue-200 duration-500 ease-in-out rounded-lg p-2">
+            <FaTruck className="mr-1" />
+            <span className="font-semibold text-base text-black/60">
+              Delivery
+            </span>
+          </li>
+        </Link>
+        <Link to={"/stats"}>
+          <li className="flex items-center  hover:bg-blue-200 duration-500 ease-in-out rounded-lg p-2">
+            <BsFileBarGraph className="mr-1" />
+            <span className="font-semibold text-base text-black/60">Stats</span>
+          </li>
+        </Link>
+        <Link to={"/notification"}>
+          <li className="flex items-center  hover:bg-blue-200 duration-500 ease-in-out rounded-lg p-2">
+            <FaBell className="mr-1" />
+            <span className="font-semibold text-base text-black/60">
+              Notification
+            </span>
+          </li>
+        </Link>
       </ul>
     </div>
   );

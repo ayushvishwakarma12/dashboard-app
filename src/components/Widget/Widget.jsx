@@ -55,16 +55,16 @@ const Widget = ({ type, widgetData }) => {
       break;
   }
   return (
-    <div className="flex flex-1 justify-between p-3 shadow-lg h-[150px] border">
+    <div className="flex justify-between p-3 shadow-lg h-[120px] md:h-[150px] ">
       <div className="flex flex-col justify-between">
-        <span className="font-semibold text-gray-400 text-base">
+        <span className="font-semibold text-gray-400 text-sm md:text-base ">
           {data.title}
         </span>
-        <span className="text-[28px]">
+        <span className="text-[18px] md:text-[28px]">
           {data.isMoney && "$"} {widgetData}
         </span>
         <Link to={`/${type}`}>
-          <span className="text-sm border-b border-gray-400 w-max">
+          <span className=" text-[12px] md:text-sm border-b border-gray-400 w-max">
             {data.link}
           </span>
         </Link>

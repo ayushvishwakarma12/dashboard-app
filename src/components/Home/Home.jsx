@@ -25,8 +25,8 @@ const Home = () => {
   getRenderTab();
 
   return (
-    <div className="flex-[10]">
-      <div className="grid grid-cols-2 md:grid-cols-4  p-5 gap-5">
+    <div className="w-[100%] overflow-hidden">
+      <div className="grid grid-cols-2 md:grid-cols-4  p-5 md:gap-5">
         <Widget type="users" widgetData="250" />
         <Widget type="orders" widgetData="350" />
         <Widget type="earnings" widgetData="560" />
@@ -40,9 +40,9 @@ const Home = () => {
       <div className=" border shadow-lg p-5 m-5">
         <div className="flex items-center gap-5">
           <button
-            className={`border p-4 rounded-lg w-32  ${
+            className={`border p-2 md:p-4 rounded-lg w-20 md:w-32 text-sm md:text-lg ${
               selectedTab === "users"
-                ? "bg-blue-500 text-white text-lg font-semibold"
+                ? "bg-blue-500 text-white text-sm md:text-lg font-semibold"
                 : ""
             }`}
             onClick={() => setSelectedTab("users")}
@@ -50,9 +50,9 @@ const Home = () => {
             Users
           </button>
           <button
-            className={`border p-4 rounded-lg w-32 ${
+            className={`border p-2 md:p-4 rounded-lg w-20 md:w-32 text-sm md:text-lg ${
               selectedTab === "products"
-                ? "bg-blue-500 text-white text-lg font-semibold"
+                ? "bg-blue-500 text-white text-sm md:text-lg font-semibold"
                 : ""
             }`}
             onClick={() => setSelectedTab("products")}
@@ -60,8 +60,9 @@ const Home = () => {
             Products
           </button>
         </div>
-
-        <div className="h-[300px]">{renderTab}</div>
+        <div className="min-h-[350px] md:min-h-[400px] overflow-y-auto">
+          {renderTab}
+        </div>
       </div>
     </div>
   );
